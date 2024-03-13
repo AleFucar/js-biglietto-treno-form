@@ -26,21 +26,26 @@ buttonElement.addEventListener('click', function () {
 
 
     if (age == "0") {
+        //stampa del biglietto nella card html (senza sconto)
         resultAge.innerHTML = "+18"
         resultKm.innerHTML = km
         resultPrice.innerHTML = parseInt(pricekm)
     }
     else if (age == "1") {
+        //calcolo sconto minorenne
         minorenne = pricekm / 100 * 20
         minorenneSconto = pricekm - minorenne
+        //stampa del biglietto nella card html
         resultAge.innerHTML = "-18"
         resultKm.innerHTML = km
         resultPrice.innerHTML = parseInt(minorenneSconto)
 
     }
     else if (age == "2") {
+        //Calcolo sconto anziani
         anziano = pricekm / 100 * 40
         anzianoSconto = pricekm - anziano
+        //Stampa del biglietto della card html
         resultAge.innerHTML = "+65"
         resultKm.innerHTML = km
         resultPrice.innerHTML = parseInt(anzianoSconto)
