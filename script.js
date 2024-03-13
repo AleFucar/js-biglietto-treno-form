@@ -20,37 +20,35 @@ buttonElement.addEventListener('click', function () {
     //calcolare costo biglietto SE il biglietto costa 0,21 al km allora PREZZO UNITARIO MOLTIPLICATO PER KM
 
     const priceKilometerUnit = 0.21 //number
-    const pricekm = priceKilometerUnit * inputkmElement
+    const pricekm = priceKilometerUnit * km
     let minorenne
     let anziano
-
+    let sconto = 0
 
     if (age == "0") {
         //stampa del biglietto nella card html (senza sconto)
         resultAge.innerHTML = "+18"
-        resultKm.innerHTML = km
-        resultPrice.innerHTML = parseInt(pricekm)
     }
     else if (age == "1") {
         //calcolo sconto minorenne
-        minorenne = pricekm / 100 * 20
-        minorenneSconto = pricekm - minorenne
+        sconto = pricekm / 100 * 20
+
         //stampa del biglietto nella card html
         resultAge.innerHTML = "-18"
-        resultKm.innerHTML = km
-        resultPrice.innerHTML = parseInt(minorenneSconto)
+
 
     }
     else if (age == "2") {
         //Calcolo sconto anziani
-        anziano = pricekm / 100 * 40
-        anzianoSconto = pricekm - anziano
+        sconto = pricekm / 100 * 40
         //Stampa del biglietto della card html
         resultAge.innerHTML = "+65"
-        resultKm.innerHTML = km
-        resultPrice.innerHTML = parseInt(anzianoSconto)
+
     }
 
+    const prezzo = pricekm - sconto
+    resultPrice.innerHTML = prezzo.toFixed(2) + " &euro;"
+    resultKm.innerHTML = km + "Km"
 })
 
 
